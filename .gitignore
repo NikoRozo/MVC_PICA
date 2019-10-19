@@ -1,4 +1,5 @@
+/.vscode
 /obj/Debug
 /bin/Debug
 /webapi/obj/Debug
-webapi/bin/Debug
+/webapi/bin/Debug
