@@ -20,3 +20,32 @@ Descarga/clona el repositorio y ejecuta el comando
 ```
 dotnet run
 ```
+URL WebApp:
+```
+https://localhost:5001/
+```
+# Api Rest
+Se expone servicio Rest Post para Contactenos, con la siguiente URL:
+```
+https://localhost:5001/Api/contact
+```
+El servicio soporta Content Negotiation para JSON/XML
+Ejemplo XML:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ContactModel>
+   <Email>!email</Email>
+   <FirstName>!nombre</FirstName>
+   <LastName>!apellido</LastName>
+   <Message>!mensaje</Message>
+</ContactModel>
+```
+Ejemplo JSON:
+```json
+{
+  "FirstName": "nombre",
+  "LastName": "apellido",
+  "Email": "email",
+  "Message": "mensaje"
+}
+```
