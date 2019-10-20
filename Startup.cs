@@ -12,6 +12,7 @@ using MCV.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace MCV
 {
@@ -29,11 +30,11 @@ namespace MCV
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-           services.AddRazorPages();
+            services.AddRazorPages();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -56,16 +57,22 @@ namespace MCV
                 options.User.RequireUniqueEmail = false;
             });
 
-           services.ConfigureApplicationCookie(options =>
-           {
-               // Cookie settings
-               options.Cookie.HttpOnly = true;
-               options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+            services.ConfigureApplicationCookie(options =>
+            {
+                // Cookie settings
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
-               options.LoginPath = "/Identity/Account/Login";
-               options.AccessDeniedPath = "/App";
-               options.SlidingExpiration = true;
-           });
+                options.LoginPath = "/Identity/Account/Login";
+                options.AccessDeniedPath = "/App";
+                options.SlidingExpiration = true;
+            });
+
+            services.AddControllers();
+            services
+                .AddMvc()
+                .AddXmlSerializerFormatters();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -101,6 +108,9 @@ namespace MCV
                     name: "App",
                     pattern: "{controller=App}/{action=Privacy}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "Api",
+                    pattern: "{controller=Api}");
             });
         }
     }
