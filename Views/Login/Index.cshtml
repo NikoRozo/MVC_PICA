@@ -1,21 +1,6 @@
-﻿@model LoginModel
-@{
-    ViewData["Title"] = "Home Page";
+﻿@{
+    ViewData["Title"] = "Login";
 }
+<h1>@ViewData["Title"]</h1>
 
-<div class="text-center">
-    <h3 class="card-title">Iniciar Sesión</h3>
-    <form>
-        <div class="form-group">
-            <label class="control-label">UserName</label>
-            <input class="form-control" asp-for="UserName"/>
-            <span class="text-danger" asp-validation-for="UserName"></span>
-        </div>
-        <div class="form-group">
-            <label class="control-label">Password</label>
-            <input class="form-control" asp-for="Password"/>
-            <span class="text-danger" asp-validation-for="UserName"></span>
-        </div>
-        <button type="submit" class="btn btn-primary mt-2 mt-md-3 mt-lg-4"asp-area="" asp-controller="Login" asp-action="Login">Iniciar</button>
-    </form>
-</div>
+<p>Estas Logueado!!!!!</p>

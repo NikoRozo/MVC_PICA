@@ -18,22 +18,28 @@ namespace MVC_PICA.Controllers
             _logger = logger;
         }
 
+        public IActionResult Login(LoginModel model)
+        {
+            return View();
+        }
+        [Authorize("Login")]
         public IActionResult Index()
         {
             return View();
         }
 
-        public async Task<IActionResult> Login(LoginModel model, string returnUrl = null)
+        public async Task<IActionResult> ActionLogin(LoginModel model, string returnUrl = null)
         {
             if (ModelState.IsValid)
             {
-                if (model.UserName == "Admin@g" && model.Password == "123")
+                if (model.UserName == "Admin" && model.Password == "123")
                 {
-                    return View(model);
+                    return Redirect("/Login/Index");
                 }
             }
             // At this point, something failed, redisplay form
-            return Redirect("/Login"); //View(model);
+            model.logins += 1;
+            return View("Login",model);
         }
 
 
