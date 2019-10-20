@@ -1,0 +1,49 @@
+﻿@model ContactModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form class="form-horizontal" method="post">
+                    <fieldset>
+                        <legend class="text-center header">Contactanos</legend>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="fname" asp-for="FirstName" type="text" placeholder="Nombres" class="form-control"/>
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="lname" asp-for="LastName" type="text" placeholder="Apellidos" class="form-control"/>
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="email" asp-for="Email" type="text" placeholder="Email Address" class="form-control"/>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <textarea class="form-control" id="message" asp-for="Message" placeholder="Su mensaje no puede ser mayor a 100 Caracteres" rows="7"></textarea>
+                                <span asp-validation-for="Message" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg" asp-area="" asp-controller="App" asp-action="ActionContact">Submit</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

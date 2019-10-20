@@ -1,8 +1,16 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Bienvenido @User.Identity.Name</h1>
+    <p>Proyecto en .Net Core, mas información en <a href="https://docs.microsoft.com/aspnet/core"> building Web apps with ASP.NET Core</a>.</p>
+    <h3>Implementación:</h3>
+    <p>Implementación del Login por Identity de .Net Core.</p>
+    <p>Implementación de Autenticación y Autorización</p>
+    <p>Pagina de Errores Personalizada</p>
+    <p>Formulario de Contacto</p>
 </div>

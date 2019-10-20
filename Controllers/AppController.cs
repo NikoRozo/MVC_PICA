@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -9,11 +10,12 @@ using MCV.Models;
 
 namespace MCV.Controllers
 {
-    public class HomeController : Controller
+    [Authorize]
+    public class AppController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<AppController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public AppController(ILogger<AppController> logger)
         {
             _logger = logger;
         }
@@ -26,6 +28,26 @@ namespace MCV.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Contact(ContactModel model)
+        {
+            return View();
+        }
+
+        public IActionResult Thanks()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> ActionContact(ContactModel model, string returnUrl = null)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("Thanks");    
+            }
+            return View("Contact",model);
+            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

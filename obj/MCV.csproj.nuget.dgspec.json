@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proyectos\\Net.Core\\MVC_PICA\\MVC_PICA.csproj": {}
+    "D:\\Proyectos\\Net.Core\\MVC_PICA\\MCV.csproj": {}
   },
   "projects": {
-    "D:\\Proyectos\\Net.Core\\MVC_PICA\\MVC_PICA.csproj": {
+    "D:\\Proyectos\\Net.Core\\MVC_PICA\\MCV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proyectos\\Net.Core\\MVC_PICA\\MVC_PICA.csproj",
-        "projectName": "MVC_PICA",
-        "projectPath": "D:\\Proyectos\\Net.Core\\MVC_PICA\\MVC_PICA.csproj",
+        "projectUniqueName": "D:\\Proyectos\\Net.Core\\MVC_PICA\\MCV.csproj",
+        "projectName": "MCV",
+        "projectPath": "D:\\Proyectos\\Net.Core\\MVC_PICA\\MCV.csproj",
         "packagesPath": "C:\\Users\\nikor\\.nuget\\packages\\",
         "outputPath": "D:\\Proyectos\\Net.Core\\MVC_PICA\\obj\\",
         "projectStyle": "PackageReference",
@@ -35,6 +35,28 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

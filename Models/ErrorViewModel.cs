@@ -1,6 +1,6 @@
 using System;
 
-namespace MVC_PICA.Models
+namespace MCV.Models
 {
     public class ErrorViewModel
     {
