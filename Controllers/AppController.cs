@@ -30,7 +30,7 @@ namespace MCV.Controllers
             return View();
         }
 
-        public IActionResult Contact(ContactModel model)
+        public IActionResult Contact()
         {
             return View();
         }
@@ -42,6 +42,7 @@ namespace MCV.Controllers
 
         public async Task<IActionResult> ActionContact(ContactModel model, string returnUrl = null)
         {
+            TryValidateModel(model);
             if (ModelState.IsValid)
             {
                 return View("Thanks");    

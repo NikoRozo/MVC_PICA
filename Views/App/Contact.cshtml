@@ -23,7 +23,10 @@
 
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input id="email" asp-for="Email" type="text" placeholder="Email Address" class="form-control"/>
+                                <input id="email" asp-for="Email" type="email" placeholder="Email Address" class="form-control"
+                                       data-val="true"
+                                       data-val-email="No es un Correo Valido."
+                                       data-val-required="El Correo es Requerido."/>
                                 <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
                         </div>
